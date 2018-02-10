@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class Sequence {
-    private static int sequence(float eps){
+    private static int sequence(double eps){
         if(eps < 0){
             System.out.print("Epsilon must be positive!");
             return 0;
@@ -14,13 +14,12 @@ public class Sequence {
         System.out.println("Elements of the sequence: ");
 
         int i = 1;
-        float denominator;
+        double masElement;
 
         do{
-            denominator = (i + 1) * (i + 1);
-            System.out.print(1 / denominator + " ");
-            i++;
-        } while (1 / denominator >= eps);
+            masElement = 1 / Math.pow(i++ + 1, 2);
+            System.out.print(masElement + " ");
+        } while (masElement >= eps);
 
         return i - 1;
     }
