@@ -5,6 +5,17 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class Sequence {
+    public static void main(String[] args){
+        System.out.print("Please enter epsilon : ");
+
+        float eps = input();
+        int index = sequence(eps);
+
+        if (index > 0) {
+            System.out.println();
+            System.out.print("Index of the least element is " + index);
+        }
+    }
     private static int sequence(double eps){
         if(eps < 0){
             System.out.print("Epsilon must be positive!");
@@ -34,16 +45,5 @@ public class Sequence {
             e.printStackTrace();
         }
         return 1;
-    }
-    public static void main(String[] args){
-        System.out.print("Please enter epsilon : ");
-
-        float eps = input();
-        int index = sequence(eps);
-
-        if (index > 0) {
-            System.out.println();
-            System.out.print("Index of the least element is " + index);
-        }
     }
 }

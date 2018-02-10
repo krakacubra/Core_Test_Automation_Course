@@ -8,6 +8,19 @@ import java.util.Random;
 
 
 public class OneDimentionalArray {
+    public static void main(String[] args){
+        System.out.print("Enter number of elements in array: ");
+        int n = input();
+        if (n <= 0){
+            System.out.print("n must be positive and bigger then 0");
+            return;
+        }
+        System.out.print("Enter top boundary to array values: ");
+        int max = input();
+        double[] array = randomFillArray(n, max);
+        arrayOutput(array);
+        System.out.print("\nmax = " + max(array));
+    }
     private static int input(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int input;
@@ -46,27 +59,10 @@ public class OneDimentionalArray {
         }
     }
     private static double max(double[] array){
-        double max = -4.9e-324;
+        double max = -Double.MAX_VALUE;
         for (int i = 0; i < array.length/2; i++){
             max = Math.max(max, array[i] + array[array.length - 1 - i]);
         }
         return max;
-    }
-    public static void main(String[] args){
-        System.out.print("Enter number of elements in array: ");
-        int n = input();
-        if (n <= 0){
-            System.out.print("n must be positive and bigger then 0");
-            return;
-        }
-        System.out.print("Enter top boundary to array values: ");
-        int max = input();
-        double[] array = randomFillArray(n, max);
-        arrayOutput(array);
-        System.out.print("\nmax = " + max(array));
-
-
-
-
     }
 }
