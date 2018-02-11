@@ -6,15 +6,24 @@ import java.lang.System;
  * class Notebook consists notes with class Note
  */
 public class NoteBook {
-    private Note []notes;
-    private int count = 0;
+    private Note[]notes;
+    private int count;
+    NoteBook(){
+        this.notes = new Note[8];
+    }
+    NoteBook(int n){
+        if (n <= 0){
+            this.notes = new Note[8];
+        }else{
+            this.notes = new Note[n];
+        }
+    }
     public int getCount(){
         return count;
     }
-    public Note[] getNote(){
+    public Note[] getNotes(){
         return notes;
     }
-
     /**
      * Method adds note to the specified index in array
      * @param n Place where note must be added
@@ -34,9 +43,7 @@ public class NoteBook {
             if (this.count < this.notes.length){
                 System.arraycopy(this.notes, n, this.notes, n + 1, this.count - n);
                 this.notes[n] = new Note(newNote);
-            }
-
-            else{
+            }else{
                 Note[] newNotes = new Note[this.notes.length * 2];
                 System.arraycopy(this.notes, 0, newNotes, 0, n);
                 newNotes[n] = new Note(newNote);
@@ -61,14 +68,11 @@ public class NoteBook {
         }
         else if (n == this.count){
             this.addNoteToBack(newNote);
-        }
-        else{
+        }else{
             if (this.count < this.notes.length){
                 System.arraycopy(this.notes, n, this.notes, n + 1, this.count - n);
                 this.notes[n] = newNote;
-            }
-
-            else{
+            } else {
                 Note[] newNotes = new Note[this.notes.length * 2];
                 System.arraycopy(this.notes, 0, newNotes, 0, n);
                 newNotes[n] = newNote;
@@ -83,18 +87,17 @@ public class NoteBook {
      * Method deletes note in the specified index
      * @param n Index of the note which must be deleted
      */
-    public void delNote(int n){ // delete note number n
+    public void delNote(int n){
         if(n >= this.count){
             System.out.print("There is no such element in notebook");
             return;
         }
         if(this.count * 2 < this.notes.length){
-            Note newNotes[] = new Note[this.notes.length / 2];
+            Note []newNotes = new Note[this.notes.length / 2];
             System.arraycopy(this.notes, 0, newNotes, 0, n);
             System.arraycopy(this.notes,n + 1, newNotes, n, this.count - n);
             this.notes = newNotes;
-        }
-        else {
+        } else {
             System.arraycopy(this.notes, n + 1, this.notes, n, this.count - n);
         }
         this.count--;
@@ -118,21 +121,11 @@ public class NoteBook {
     public void updateNote(int n, Note updateNote){
         if(n < 0 || n >= this.count){
             System.out.print("Notebook hasn't note with this index");
-        }
-        else{
+        }else{
             this.notes[n] = updateNote;
         }
     }
 
-    NoteBook(){
-        this.notes = new Note[1];
-    }
-    NoteBook(int n){
-        if (n == 0){
-            this.notes = new Note[1];
-        }
-        this.notes = new Note[n];
-    }
 
     private void addNoteToBack(String newNote){
         if(newNote == null) {
@@ -141,8 +134,7 @@ public class NoteBook {
         }
         if (this.count < this.notes.length){
             this.notes[this.count] = new Note(newNote);
-        }
-        else{
+        }else{
             Note[] newNotes = new Note[this.notes.length * 2];
             System.arraycopy(this.notes, 0, newNotes, 0, this.count);
             newNotes[this.count] = new Note(newNote);
@@ -158,8 +150,7 @@ public class NoteBook {
         if (this.count < this.notes.length){
             this.notes[this.count] = newNote;
 
-        }
-        else{
+        }else{
             Note[] newNotes = new Note[this.notes.length * 2];
             System.arraycopy(this.notes, 0, newNotes, 0, this.count);
             newNotes[this.count] = newNote;
@@ -177,9 +168,7 @@ public class NoteBook {
         if (this.count < this.notes.length){
             System.arraycopy(this.notes, 0, this.notes, 1, this.count);
             this.notes[0] = newNote;
-        }
-
-        else{
+        }else{
             Note[] newNotes = new Note[this.notes.length * 2];
             newNotes[0] = newNote;
             System.arraycopy(this.notes, 0, newNotes, 1, this.count);
@@ -198,9 +187,7 @@ public class NoteBook {
             Note record = new Note(newNote);
             this.notes[0] = record;
 
-        }
-
-        else{
+        }else{
             Note[] newNotes = new Note[this.notes.length * 2];
             Note record = new Note(newNote);
             newNotes[0] = record;
