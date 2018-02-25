@@ -4,11 +4,8 @@ import java.util.Properties;
 
 class MusicalInstrument {
     private String sound;
-    {
-        sound = "Im a musical instrument";
-    }
     MusicalInstrument(){
-
+        sound = "Im a musical instrument";
     }
     MusicalInstrument(String sound){
         this.sound = sound;
