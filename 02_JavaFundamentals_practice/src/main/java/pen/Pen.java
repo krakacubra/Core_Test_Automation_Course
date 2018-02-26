@@ -9,10 +9,6 @@ public class Pen
     private float price;
 
     public Pen(){
-        brand = "anon";
-        red = 0;
-        green = 0;
-        blue = 0;
         price = 0.0F;
     }
     public Pen(String brand, int red, int green, int blue){
@@ -54,13 +50,13 @@ public class Pen
         if(this.price != pen.price){
             return false;
         }
-        if(this.red != red){
+        if(this.red != pen.red){
             return false;
         }
-        if(this.green != green){
+        if(this.green != pen.green){
             return false;
         }
-        if(this.blue != blue){
+        if(this.blue != pen.blue){
             return false;
         }
         if(null == this.brand){
