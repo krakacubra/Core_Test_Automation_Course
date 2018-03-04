@@ -1,5 +1,12 @@
 package main.java.pen.stationery;
 
+enum WritingUtensils {
+    PEN,
+    PENCIL,
+    MARKER;
+}
+
+
 public class WritingInstruments
 extends Stationery{
     private WritingUtensils item;
