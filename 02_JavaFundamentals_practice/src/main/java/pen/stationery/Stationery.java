@@ -1,5 +1,7 @@
 package main.java.pen.stationery;
 
+import main.java.pen.Pen;
+
 /**
  *
  */
@@ -23,14 +25,14 @@ public class Stationery {
     }
     @Override
     public int hashCode() {
-        return (int)(12 * price + ((brand == null) ? 0 : brand.hashCode()));
+        return (int)(12 * price) + ((brand == null) ? 0 : brand.hashCode());
     }
 
     @Override
     public String toString() {
         return getClass().getName() + "@"
                 + " price: " + price
-                + ", Brand: " + brand;
+                + ", brand: " + brand;
     }
 
     public void setBrand(String brand) {
@@ -48,4 +50,29 @@ public class Stationery {
     public float getPrice() {
         return price;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){
+            return true;
+        }
+        if (null == obj){
+            return false;
+        }
+        if (getClass() != obj.getClass()){
+            return false;
+        }
+        Stationery pen = (Stationery) obj;
+        if(this.price != pen.price){
+            return false;
+        }
+        if(null == this.brand){
+            return (this.brand == pen.brand);
+        }
+        else if(!this.brand.equals(pen.brand)){
+            return false;
+        }
+        return true;
+    }
+
 }

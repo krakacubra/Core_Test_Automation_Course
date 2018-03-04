@@ -2,10 +2,10 @@ package main.java.pen.stationery;
 
 public class WritingInstruments
 extends Stationery{
-    WritingUtensils item;
-    int red;
-    int green;
-    int blue;
+    private WritingUtensils item;
+    private int red;
+    private int green;
+    private int blue;
     public WritingInstruments(){
         super();
     }
@@ -62,5 +62,63 @@ extends Stationery{
 
     public WritingUtensils getItem() {
         return item;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "item: " + item +
+                "color: " + red + ", " + green + ", " + blue;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() +
+                ((item == null) ? 0 : item.hashCode()) +
+                13 * (red + green + blue);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)){
+            WritingInstruments writingInstrument = (WritingInstruments)obj;
+            if (this.red != writingInstrument.red){
+                return false;
+            }
+            if (this.green != writingInstrument.green){
+                return false;
+            }
+            if (this.blue != writingInstrument.blue){
+                return false;
+            }
+            if (this.item == null){
+                return (this.item == writingInstrument.item);
+            }
+            return this.item.equals(writingInstrument.item);
+        }
+        return false;
+    }
+
+    public int getBlue() {
+        return blue;
+    }
+
+    public int getGreen() {
+        return green;
+    }
+
+    public int getRed() {
+        return red;
+    }
+
+    public void setBlue(int blue) {
+        this.blue = blue;
+    }
+
+    public void setGreen(int green) {
+        this.green = green;
+    }
+
+    public void setRed(int red) {
+        this.red = red;
     }
 }
