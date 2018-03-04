@@ -17,7 +17,6 @@ public class Pen
         this.green = green;
         this.blue = blue;
     }
-
     public Pen(String brand, int red, int green, int blue, float price){
         this.brand = brand;
         this.red = red;
@@ -25,7 +24,6 @@ public class Pen
         this.blue = blue;
         this.price = price;
     }
-
     @Override
     public String toString() {
         return getClass().getName() + "@"
@@ -70,8 +68,7 @@ public class Pen
 
     @Override
     public int hashCode(){
-        return (int)(31*price + ((null == brand)
-                ? 0 : brand.hashCode()));
+        return (int)(31 * price) + 31 * (red + green + blue) + ((null == brand) ? 0 : brand.hashCode());
     }
 
     public String getBrand() {
