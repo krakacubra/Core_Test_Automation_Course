@@ -1,30 +1,44 @@
 package main.java.pen.stationery;
 
-enum WritingUtensils {
-    PEN,
-    PENCIL,
-    MARKER;
-}
 
 
 public class WritingInstruments
 extends Stationery{
-    private WritingUtensils item;
+    private WritingInstrumentsE item;
     private int red;
     private int green;
     private int blue;
     public WritingInstruments(){
         super();
     }
-    public WritingInstruments(WritingUtensils item, float price){
+    public WritingInstruments(WritingInstrumentsE item, float price){
         super(price);
         this.item = item;
     }
-    public WritingInstruments(WritingUtensils item, float price, String brand){
+    public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue){
+        super();
+        this.item = item;
+        if(red > 255){
+            this.red = 255;
+        } else {
+            this.red = red;
+        }
+        if(green > 255){
+            this.green = 255;
+        } else {
+            this.green = green;
+        }
+        if(blue > 255){
+            this.blue = 255;
+        } else {
+            this.blue = blue;
+        }
+    }
+    public WritingInstruments(WritingInstrumentsE item, float price, String brand){
         super(brand, price);
         this.item = item;
     }
-    public WritingInstruments(WritingUtensils item, float price, int red, int green, int blue){
+    public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue, float price){
         super(price);
         this.item = item;
         if(red > 255){
@@ -43,7 +57,7 @@ extends Stationery{
             this.blue = blue;
         }
     }
-    public WritingInstruments(WritingUtensils item, float price, int red, int green, int blue, String brand){
+    public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue, float price, String brand){
         super(brand, price);
         this.item = item;
         if(red > 255){
@@ -63,18 +77,18 @@ extends Stationery{
         }
     }
 
-    public void setItem(WritingUtensils item) {
+    public void setItem(WritingInstrumentsE item) {
         this.item = item;
     }
 
-    public WritingUtensils getItem() {
+    public WritingInstrumentsE getItem() {
         return item;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "item: " + item +
-                "color: " + red + ", " + green + ", " + blue;
+        return super.toString() + ", item: " + item +
+                ", color: " + red + ", " + green + ", " + blue;
     }
 
     @Override
@@ -101,6 +115,7 @@ extends Stationery{
                 return (this.item == writingInstrument.item);
             }
             return this.item.equals(writingInstrument.item);
+
         }
         return false;
     }
