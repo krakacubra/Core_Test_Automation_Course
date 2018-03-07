@@ -1,10 +1,5 @@
 package main.java.pen.stationery;
 
-enum DeskTopInstrumentsE {
-    HOLE_PUNCH,
-    STAPLER,
-    TAPE;
-}
 
 public class DeskTopInstruments
 extends Stationery{
