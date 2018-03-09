@@ -3,17 +3,15 @@ package main.java.pen.stationery;
 import main.java.pen.Pen;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StationaryManager {
-    private ArrayList<Stationery> record;
+    private List<Stationery> record;
     public StationaryManager(){
-        record = new ArrayList<>();
-    }
-    public ArrayList<Stationery> add(Stationery item){
-        record.add(item);
-        return record;
+        record = new ArrayList<Stationery>();
     }
     public float computeCost(){
+        if (this == null) return 0;
         float sum = 0;
         for (Stationery item : this.record){
             sum += item.getPrice();
@@ -21,7 +19,7 @@ public class StationaryManager {
         return sum;
     }
 
-    public ArrayList<Stationery> getRecord() {
+    public List<Stationery> getRecord() {
         return record;
     }
 
