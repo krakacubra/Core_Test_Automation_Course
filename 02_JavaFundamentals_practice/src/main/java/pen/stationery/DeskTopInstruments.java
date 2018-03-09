@@ -8,6 +8,10 @@ extends Stationery{
     public DeskTopInstruments(){
         super();
     }
+    public DeskTopInstruments(DeskTopInstrumentsE item){
+        super();
+        this.item = item;
+    }
 
     public DeskTopInstruments(DeskTopInstrumentsE item, float price){
         super(price);
@@ -41,12 +45,12 @@ extends Stationery{
 
     @Override
     public int hashCode() {
-        return super.hashCode() + item.hashCode();
+        return super.hashCode() + (item == null ? 0 : item.hashCode());
     }
 
     @Override
     public String toString() {
-        return super.toString() + "item: " + this.item;
+        return super.toString() + ", item: " + this.item;
     }
 }
 
