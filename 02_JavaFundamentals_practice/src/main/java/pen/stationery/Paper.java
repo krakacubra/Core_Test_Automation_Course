@@ -30,7 +30,7 @@ extends Stationery{
 
     @Override
     public int hashCode() {
-        return super.hashCode() + item.hashCode() + 23 * nPages;
+        return super.hashCode() + (item == null ? 0 : item.hashCode()) + 23 * nPages;
     }
 
     @Override
