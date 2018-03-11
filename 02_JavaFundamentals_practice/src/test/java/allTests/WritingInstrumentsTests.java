@@ -1,7 +1,7 @@
 package test.java.allTests;
 
 import main.java.pen.stationery.WritingInstruments;
-import main.java.pen.stationery.WritingInstrumentsE;
+import main.java.pen.stationery.enums.WritingInstrumentsE;
 import org.junit.Before;
 import org.junit.Test;
 

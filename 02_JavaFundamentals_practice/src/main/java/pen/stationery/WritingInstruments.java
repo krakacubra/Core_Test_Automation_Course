@@ -1,9 +1,9 @@
 package main.java.pen.stationery;
 
 
+import main.java.pen.stationery.enums.WritingInstrumentsE;
 
-public class WritingInstruments
-extends Stationery{
+public class WritingInstruments extends Stationery{
     private WritingInstrumentsE item;
     private int red;
     private int green;
@@ -18,21 +18,9 @@ extends Stationery{
     public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue){
         super();
         this.item = item;
-        if(red > 255){
-            this.red = 255;
-        } else {
-            this.red = red;
-        }
-        if(green > 255){
-            this.green = 255;
-        } else {
-            this.green = green;
-        }
-        if(blue > 255){
-            this.blue = 255;
-        } else {
-            this.blue = blue;
-        }
+        this.red = (red > 255) ? 255 : red;
+        this.green = (green > 255) ? 255 : green;
+        this.blue = (blue > 255) ? 255 : blue;
     }
     public WritingInstruments(WritingInstrumentsE item, float price, String brand){
         super(brand, price);
@@ -41,40 +29,16 @@ extends Stationery{
     public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue, float price){
         super(price);
         this.item = item;
-        if(red > 255){
-            this.red = 255;
-        } else {
-            this.red = red;
-        }
-        if(green > 255){
-            this.green = 255;
-        } else {
-            this.green = green;
-        }
-        if(blue > 255){
-            this.blue = 255;
-        } else {
-            this.blue = blue;
-        }
+        this.red = (red > 255) ? 255 : red;
+        this.green = (green > 255) ? 255 : green;
+        this.blue = (blue > 255) ? 255 : blue;
     }
     public WritingInstruments(WritingInstrumentsE item, int red, int green, int blue, float price, String brand){
         super(brand, price);
         this.item = item;
-        if(red > 255){
-            this.red = 255;
-        } else {
-            this.red = red;
-        }
-        if(green > 255){
-            this.green = 255;
-        } else {
-            this.green = green;
-        }
-        if(blue > 255){
-            this.blue = 255;
-        } else {
-            this.blue = blue;
-        }
+        this.red = (red > 255) ? 255 : red;
+        this.green = (green > 255) ? 255 : green;
+        this.blue = (blue > 255) ? 255 : blue;
     }
 
     public void setItem(WritingInstrumentsE item) {

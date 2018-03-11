@@ -1,6 +1,9 @@
 package test.java.allTests;
 
 import main.java.pen.stationery.*;
+import main.java.pen.stationery.enums.DeskTopInstrumentsE;
+import main.java.pen.stationery.enums.PaperE;
+import main.java.pen.stationery.enums.WritingInstrumentsE;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,7 +40,11 @@ public class StationaryManagerTest {
     }
     @Test
     public void  setStationaryManagerToStringReturnAllNecessaryInformation(){
-        String str = "There are 3 items in list.\nList of stationary:\n";
+        String str = "There are 3 items in list.\n" +
+                "List of stationary:\n" +
+                "main.java.pen.stationery.Paper@ price: 34.0, brand: null, item: NOTEBOOK, number of pages: 12\n" +
+                "main.java.pen.stationery.WritingInstruments@ price: 23.0, brand: null, item: MARKER, color: 0, 0, 0\n" +
+                "main.java.pen.stationery.DeskTopInstruments@ price: 12.0, brand: null, item: RUBBER\n";
         assertEquals(str, stationaryManager.toString());
     }
 }

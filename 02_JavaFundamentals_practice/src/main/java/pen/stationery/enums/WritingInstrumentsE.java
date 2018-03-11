@@ -1,4 +1,4 @@
-package main.java.pen.stationery;
+package main.java.pen.stationery.enums;
 
 public enum WritingInstrumentsE {
     PEN,

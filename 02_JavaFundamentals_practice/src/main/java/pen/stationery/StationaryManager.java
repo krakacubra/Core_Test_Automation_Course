@@ -11,7 +11,6 @@ public class StationaryManager {
         record = new ArrayList<Stationery>();
     }
     public float computeCost(){
-        if (this == null) return 0;
         float sum = 0;
         for (Stationery item : this.record){
             sum += item.getPrice();

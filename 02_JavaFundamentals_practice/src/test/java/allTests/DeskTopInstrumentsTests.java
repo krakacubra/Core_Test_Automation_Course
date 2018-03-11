@@ -1,7 +1,7 @@
 package test.java.allTests;
 
 import main.java.pen.stationery.DeskTopInstruments;
-import main.java.pen.stationery.DeskTopInstrumentsE;
+import main.java.pen.stationery.enums.DeskTopInstrumentsE;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,23 +22,7 @@ public class DeskTopInstrumentsTests {
         emptyDeskTopInstrument = new DeskTopInstruments();
         sameRubber = new DeskTopInstruments(DeskTopInstrumentsE.RUBBER, 12F, "brand");
         holePunch =  new DeskTopInstruments(DeskTopInstrumentsE.HOLE_PUNCH, 43F, "anotherBrand");
-//        samePen = new WritingInstruments(WritingInstrumentsE.PEN, 265,365, 299);
-//        penWithAllInformation =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,23,23,190.32F, "lol");
-//        samePenWithAllInformation =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,23,23,190.32F, "lol");
-//        penWithAllInformationAndDifferentPrice =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,23,23,191.32F, "lol");
-//        penWithAllInformationAndDifferentBrand =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,23,23,190.32F, "not lol");
-//        penWithAllInformationAndDifferentRedPart =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 2,23,23,190.32F, "lol");
-//        penWithAllInformationAndDifferentGreenPart =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,2,23,190.32F, "lol");
-//        penWithAllInformationAndDifferentBluePart =
-//                new WritingInstruments(WritingInstrumentsE.PEN, 23,23,2,190.32F, "lol");
-//        instrumentWithAllInformationAndDifferentItem =
-//                new WritingInstruments(WritingInstrumentsE.MARKER, 23,23,23,190.32F, "lol");
+
 
     }
 

@@ -1,8 +1,7 @@
 package test.java.allTests;
 
 import main.java.pen.stationery.Paper;
-import main.java.pen.stationery.PaperE;
-import main.java.pen.stationery.Stationery;
+import main.java.pen.stationery.enums.PaperE;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,7 +48,7 @@ public class PaperTests {
     @Test
     public void paperHashCodeMustReturnRightHashCode(){
         int paperHashCode = (int)(12 * paper.getPrice()) + paper.getBrand().hashCode() + paper.getItem().hashCode() +
-                23 * paper.getnPages();
+                23 * paper.getNumberPages();
         assertEquals(paperHashCode, paper.hashCode());
     }
     @Test

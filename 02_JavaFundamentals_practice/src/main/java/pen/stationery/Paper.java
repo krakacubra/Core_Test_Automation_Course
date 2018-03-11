@@ -1,43 +1,48 @@
 package main.java.pen.stationery;
 
-public class Paper
-extends Stationery{
-    PaperE item;
-    int nPages;
+import main.java.pen.stationery.enums.PaperE;
+
+public class Paper extends Stationery{
+    private PaperE item;
+    private int numberPages;
+
     public Paper(){
         super();
     }
-    public Paper(PaperE item, int nPages){
+
+    public Paper(PaperE item, int numberPages){
         super();
         this.item = item;
-        this.nPages = nPages;
+        this.numberPages = numberPages;
     }
-    public Paper(PaperE item, int nPages, float price){
+
+    public Paper(PaperE item, int numberPages, float price){
         super(price);
         this.item = item;
-        this.nPages = nPages;
+        this.numberPages = numberPages;
     }
-    public Paper(PaperE item, int nPages, float price, String brand){
+
+    public Paper(PaperE item, int numberPages, float price, String brand){
         super(brand, price);
         this.item = item;
-        this.nPages = nPages;
+        this.numberPages = numberPages;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", item: " + item + ", number of pages: " + nPages;
+        return super.toString() + ", item: " + item + ", number of pages: " + numberPages;
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode() + (item == null ? 0 : item.hashCode()) + 23 * nPages;
+        return super.hashCode() + (item == null ? 0 : item.hashCode()) + 23 * numberPages;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (super.equals(obj)){
             Paper paper = (Paper)obj;
-            if (paper.nPages != this.nPages){
+            if (paper.numberPages != this.numberPages){
                 return false;
             }
             if (this.item == null){
@@ -48,13 +53,14 @@ extends Stationery{
         return false;
     }
 
-    public int getnPages() {
-        return nPages;
+    public int getNumberPages() {
+        return numberPages;
     }
 
-    public void setnPages(int nPages) {
-        this.nPages = nPages;
+    public void setNumberPages(int numberPages) {
+        this.numberPages = numberPages;
     }
+
     public void setItem(PaperE item) {
         this.item = item;
     }

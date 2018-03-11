@@ -1,13 +1,15 @@
 package main.java.pen.stationery;
 
 
-public class DeskTopInstruments
-extends Stationery{
-    DeskTopInstrumentsE item;
+import main.java.pen.stationery.enums.DeskTopInstrumentsE;
+
+public class DeskTopInstruments extends Stationery{
+    private DeskTopInstrumentsE item;
 
     public DeskTopInstruments(){
         super();
     }
+
     public DeskTopInstruments(DeskTopInstrumentsE item){
         super();
         this.item = item;
