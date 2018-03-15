@@ -1,11 +1,15 @@
 package main.java.pen.stationery;
 
 
+import main.java.pen.stationery.comparators.StationeryNameComparator;
+import main.java.pen.stationery.comparators.StationeryPriceComparator;
 import main.java.pen.stationery.enums.DeskTopInstrumentsE;
 import main.java.pen.stationery.enums.PaperE;
 import main.java.pen.stationery.enums.WritingInstrumentsE;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BeginnersKit {
@@ -26,6 +30,15 @@ public class BeginnersKit {
     public StationaryManager getBeginnersKit() {
         return beginnersKit;
     }
-
-
+    public void priceSort(){
+        Collections.sort(beginnersKit.getRecord(), new StationeryPriceComparator());
+    }
+    public void nameSort(){
+        Collections.sort(beginnersKit.getRecord(), new StationeryNameComparator());
+    }
+    public void priceNameSort(){
+        Comparator<Stationery> comparator = new StationeryPriceComparator()
+                .thenComparing(new StationeryNameComparator());
+        Collections.sort(beginnersKit.getRecord(), comparator);
+    }
 }
