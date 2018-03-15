@@ -33,8 +33,8 @@ public class PaperTests {
     }
     @Test
     public void paperToStringMustReturnNecessaryString(){
-        assertEquals("main.java.pen.stationery.Paper@ price: 45.0, " +
-                "brand: qwerty, item: NOTEBOOK, number of pages: 30",
+        assertEquals("main.java.pen.stationery.Paper@ item: NOTEBOOK, brand: qwerty, " +
+                        "price: 45.0, number of pages: 30",
                 paper.toString());
     }
     @Test

@@ -30,7 +30,11 @@ public class Paper extends Stationery{
 
     @Override
     public String toString() {
-        return super.toString() + ", item: " + item + ", number of pages: " + numberPages;
+        return getClass().getName() + "@"
+                + " item: " + this.item
+                + ", brand: " + this.getBrand()
+                + ", price: " + this.getPrice()
+                + ", number of pages: " + numberPages;
     }
 
     @Override

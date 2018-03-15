@@ -51,8 +51,11 @@ public class WritingInstruments extends Stationery{
 
     @Override
     public String toString() {
-        return super.toString() + ", item: " + item +
-                ", color: " + red + ", " + green + ", " + blue;
+        return getClass().getName() + "@"
+                + " item: " + this.item
+                + ", brand: " + this.getBrand()
+                + ", price: " + this.getPrice()
+                + ", color: " + red + ", " + green + ", " + blue;
     }
 
     @Override

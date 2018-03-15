@@ -52,7 +52,10 @@ public class DeskTopInstruments extends Stationery{
 
     @Override
     public String toString() {
-        return super.toString() + ", item: " + this.item;
+         return getClass().getName() + "@"
+                + " item: " + this.item
+                + ", brand: " + this.getBrand()
+                + ", price: " + this.getPrice();
     }
 }
 
