@@ -1,4 +1,4 @@
-package test.java.allTests;
+package test.java;
 
 import main.java.pen.stationery.WritingInstruments;
 import main.java.pen.stationery.enums.WritingInstrumentsE;
