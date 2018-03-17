@@ -15,7 +15,7 @@ import java.util.List;
 public class BeginnersKit {
     private StationaryManager beginnersKit;
 
-    public  BeginnersKit(){
+    public BeginnersKit(){
         Paper paper = new Paper(PaperE.NOTEBOOK, 20,20F, "mybrand");
         WritingInstruments pen = new WritingInstruments(WritingInstrumentsE.PEN,
                 0,0,0,4F, "mybrand");
@@ -24,21 +24,11 @@ public class BeginnersKit {
         DeskTopInstruments rubber = new DeskTopInstruments(DeskTopInstrumentsE.RUBBER, 154F,"mybrand");
         List<Stationery> kit = Arrays.asList(paper, pen, pencil, rubber);
         beginnersKit = new StationaryManager();
-        beginnersKit.getRecord().addAll(kit);
+        beginnersKit.getRecords().addAll(kit);
     }
 
     public StationaryManager getBeginnersKit() {
         return beginnersKit;
     }
-    public void priceSort(){
-        Collections.sort(beginnersKit.getRecord(), new StationeryPriceComparator());
-    }
-    public void nameSort(){
-        Collections.sort(beginnersKit.getRecord(), new StationeryNameComparator());
-    }
-    public void priceNameSort(){
-        Comparator<Stationery> comparator = new StationeryPriceComparator()
-                .thenComparing(new StationeryNameComparator());
-        Collections.sort(beginnersKit.getRecord(), comparator);
-    }
+
 }

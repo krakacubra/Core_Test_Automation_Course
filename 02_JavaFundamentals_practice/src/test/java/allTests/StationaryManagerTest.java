@@ -22,9 +22,9 @@ public class StationaryManagerTest {
         marker = new WritingInstruments(WritingInstrumentsE.MARKER, 23F);
         rubber = new DeskTopInstruments(DeskTopInstrumentsE.RUBBER, 12F);
         holePunch = new DeskTopInstruments(DeskTopInstrumentsE.HOLE_PUNCH);
-        stationaryManager.getRecord().add(paper);
-        stationaryManager.getRecord().add(marker);
-        stationaryManager.getRecord().add(rubber);
+        stationaryManager.getRecords().add(paper);
+        stationaryManager.getRecords().add(marker);
+        stationaryManager.getRecords().add(rubber);
 
     }
     @Test
@@ -34,7 +34,7 @@ public class StationaryManagerTest {
     }
     @Test
     public void cumputeCostMustHandleWithEmptyPriceField(){
-        stationaryManager.getRecord().add(holePunch);
+        stationaryManager.getRecords().add(holePunch);
         float cost = paper.getPrice() + marker.getPrice() + rubber.getPrice() + 0;
         assertEquals(cost, stationaryManager.computeCost(), 0);
     }
