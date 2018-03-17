@@ -1,4 +1,4 @@
-package test.java;
+package test.java.pen.stationery;
 
 import main.java.pen.stationery.Paper;
 import main.java.pen.stationery.enums.PaperE;
