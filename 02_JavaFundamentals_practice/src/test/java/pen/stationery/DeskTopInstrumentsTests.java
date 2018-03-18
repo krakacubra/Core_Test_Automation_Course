@@ -1,4 +1,4 @@
-package test.java.allTests;
+package test.java.pen.stationery;
 
 import main.java.pen.stationery.DeskTopInstruments;
 import main.java.pen.stationery.enums.DeskTopInstrumentsE;
@@ -28,11 +28,9 @@ public class DeskTopInstrumentsTests {
 
     @Test
     public void deskTopInstrumentsToStringMustWriteRightInformation() {
-        assertEquals("main.java.pen.stationery.DeskTopInstruments@ price: 12.0, brand: brand," +
-                        " item: RUBBER",
+        assertEquals("main.java.pen.stationery.DeskTopInstruments@ item: RUBBER, brand: brand, price: 12.0",
                 rubber.toString());
-        assertEquals("main.java.pen.stationery.DeskTopInstruments@ price: 0.0, brand: null," +
-                        " item: null",
+        assertEquals("main.java.pen.stationery.DeskTopInstruments@ item: null, brand: null, price: 0.0",
                 emptyDeskTopInstrument.toString());
     }
     @Test

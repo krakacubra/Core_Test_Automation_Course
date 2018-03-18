@@ -1,4 +1,4 @@
-package test.java.allTests;
+package test.java.pen.stationery;
 
 import main.java.pen.stationery.WritingInstruments;
 import main.java.pen.stationery.enums.WritingInstrumentsE;
@@ -49,11 +49,11 @@ public class WritingInstrumentsTests {
     }
     @Test
     public void writingInstrumentToStringMustWriteRightInformation(){
-        assertEquals("main.java.pen.stationery.WritingInstruments@ price: 190.32, brand: lol," +
-                        " item: PEN, color: 23, 23, 23",
+        assertEquals("main.java.pen.stationery.WritingInstruments@ item: PEN, brand: lol, price: 190.32, " +
+                        "color: 23, 23, 23",
                 penWithAllInformation.toString());
-        assertEquals("main.java.pen.stationery.WritingInstruments@ price: 0.0, brand: null," +
-                        " item: PEN, color: 255, 255, 255",
+        assertEquals("main.java.pen.stationery.WritingInstruments@ item: PEN, brand: null, price: 0.0, " +
+                        "color: 255, 255, 255",
                 pen.toString());
     }
     @Test
