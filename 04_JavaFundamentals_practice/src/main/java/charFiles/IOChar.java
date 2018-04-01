@@ -29,11 +29,10 @@ public class IOChar {
 
     public void writeChar(String path) throws IOException{
         FileWriter fileWriter = new FileWriter(path);
-        BufferedWriter writer = new BufferedWriter(fileWriter);
         String s;
         for (int i = 0; i < KeyWords.KEYWORDS.size(); i++){
-            s = KeyWords.KEYWORDS.get(i) + " - " + countKeyWord[i];
-            writer.write(s);
+            s = KeyWords.KEYWORDS.get(i) + " - " + countKeyWord[i] + "\r\n";
+            fileWriter.write(s);
         }
         fileWriter.close();
     }
