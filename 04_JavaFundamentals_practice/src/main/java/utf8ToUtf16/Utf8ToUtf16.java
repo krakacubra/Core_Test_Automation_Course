@@ -13,7 +13,7 @@ public class Utf8ToUtf16 {
         );
         String s;
         while ((s = in.readLine()) != null) {
-            out.write(s);
+            out.write(s + "\r\n");
         }
         out.close();
     }
