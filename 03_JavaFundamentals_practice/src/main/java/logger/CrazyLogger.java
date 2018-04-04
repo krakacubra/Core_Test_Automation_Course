@@ -2,21 +2,23 @@ package main.java.logger;
 
 import main.java.logger.exception.NoSuchInformation;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class CrazyLogger {
     private StringBuilder logger;
+
+    public StringBuilder getLogger(){
+        return logger;
+    }
 
     public CrazyLogger(){
         logger = new StringBuilder();
     }
 
     public void addLog(String message){
-        Formatter formatter = new Formatter();
-        Date data = new Date();
-        Calendar calendar = Calendar.getInstance();
-        formatter.format("%tF : %tR", calendar, calendar);
-        logger.append(formatter).append(" - ").append(message).append("\n");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-YYYY : hh-mm");
+        logger.append(dateFormat.format(new Date())).append(" - ").append(message).append(";\n");
     }
 
     public List<String> findInfo(String toFind) throws NoSuchInformation {
@@ -26,11 +28,10 @@ public class CrazyLogger {
         }
         List<String> foundInLog = new ArrayList<>();
 
-        index = logger.indexOf("\n", index);
-        foundInLog.add(logger.substring(0,index));
+        index = logger.indexOf(";", index);
+        foundInLog.add(logger.substring(0,index+1));
 
         while (index < logger.length()){
-            int begin = index + 1;
 
             index = logger.indexOf(toFind, index);
             if (index == -1){
