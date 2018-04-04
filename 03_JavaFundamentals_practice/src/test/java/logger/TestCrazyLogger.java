@@ -7,10 +7,8 @@ import org.junit.Test;
 
 import javax.management.MXBean;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Formatter;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 
 import static org.junit.Assert.assertEquals;
@@ -29,20 +27,17 @@ public class TestCrazyLogger {
     @Test
     public void addLogShouldBeInCertainFormat(){
         StringBuilder expected = new StringBuilder();
-        Formatter formatter = new Formatter();
-        Calendar calendar = Calendar.getInstance();
-        formatter.format("%tF : %tR", calendar, calendar);
-        expected.append(formatter).append(" - ").append("aaa").append("\n");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-YYYY : hh-mm");
+        expected.append(dateFormat.format(new Date())).append(" - ").append("aaa").append(";\n");
         assertEquals(expected.toString(), loggerFormat.getLogger().toString());
     }
     @Test
     public void findInfoMustReturnNecessaryInformation()throws NoSuchInformation{
         List<String> expected = new ArrayList<>();
-        Formatter formatter = new Formatter();
-        Calendar calendar = Calendar.getInstance();
-        formatter.format("%tF : %tR", calendar, calendar);
-        expected.add(formatter + " - aaa");
-        expected.add(formatter + " - aba");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-YYYY : hh-mm");
+        String date = dateFormat.format(new Date());
+        expected.add(date + " - aaa;");
+        expected.add(date + " - aba;");
         assertEquals(expected, loggerFind.findInfo("a"));
     }
 
