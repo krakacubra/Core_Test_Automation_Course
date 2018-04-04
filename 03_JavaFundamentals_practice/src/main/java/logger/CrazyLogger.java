@@ -11,10 +11,6 @@ public class CrazyLogger {
         logger = new StringBuilder();
     }
 
-    public StringBuilder getLogger() {
-        return logger;
-    }
-
     public void addLog(String message){
         Formatter formatter = new Formatter();
         Date data = new Date();
