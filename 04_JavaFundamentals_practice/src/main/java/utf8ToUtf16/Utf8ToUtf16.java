@@ -5,17 +5,20 @@ import java.io.*;
 
 public class Utf8ToUtf16 {
     public static void Utf8ToUtf16(String src, String dst) throws IOException {
-        Writer out = new BufferedWriter(
-                new OutputStreamWriter(
-                        new FileOutputStream(dst), "UTF16"));
-        BufferedReader in = new BufferedReader(
-                new FileReader(src)
-        );
+
         String s;
-        while ((s = in.readLine()) != null) {
-            out.write(s + "\r\n");
+        try(
+                Writer out = new BufferedWriter(
+                        new OutputStreamWriter(
+                                new FileOutputStream(dst), "UTF16"));
+                BufferedReader in = new BufferedReader(
+                        new FileReader(src)
+                );
+                ){
+            while ((s = in.readLine()) != null) {
+                out.write(s + "\r\n");
+            }
         }
-        out.close();
     }
 
     public static void main(String[] args) {
