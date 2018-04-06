@@ -14,27 +14,33 @@ public class IOChar {
 
 
     public void readChar() throws IOException {
-        FileReader fileReader = new FileReader(path);
-        BufferedReader reader = new BufferedReader(fileReader);
         String s;
-        while ((s = reader.readLine()) != null){
-            for (int i = 0; i < KeyWords.KEYWORDS.size(); i++){
-                if (s.contains(" " + KeyWords.KEYWORDS.get(i)) || s.contains(KeyWords.KEYWORDS.get(i) + " ")){
-                    countKeyWord[i]++;
+        try(
+                FileReader fileReader = new FileReader(path);
+                BufferedReader reader = new BufferedReader(fileReader);
+                ){
+            while ((s = reader.readLine()) != null){
+                for (int i = 0; i < KeyWords.KEYWORDS.size(); i++){
+                    if (s.contains(" " + KeyWords.KEYWORDS.get(i)) || s.contains(KeyWords.KEYWORDS.get(i) + " ")){
+                        countKeyWord[i]++;
+                    }
                 }
             }
         }
-        fileReader.close();
     }
 
-    public void writeChar(String path) throws IOException{
-        FileWriter fileWriter = new FileWriter(path);
-        String s;
-        for (int i = 0; i < KeyWords.KEYWORDS.size(); i++){
-            s = KeyWords.KEYWORDS.get(i) + " - " + countKeyWord[i] + "\r\n";
-            fileWriter.write(s);
+    public void writeChar(String path) throws IOException {
+        try(
+                FileWriter fileWriter = new FileWriter(path);
+        ){
+            String s;
+            for (int i = 0; i < KeyWords.KEYWORDS.size(); i++) {
+                if (countKeyWord[i] > 0) {
+                    s = KeyWords.KEYWORDS.get(i) + " - " + countKeyWord[i] + "\r\n";
+                    fileWriter.write(s);
+                }
+            }
         }
-        fileWriter.close();
     }
 
     public int[] getCountKeyWord() {
