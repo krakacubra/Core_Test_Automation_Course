@@ -1,0 +1,16 @@
+class - 1
+for - 2
+if - 2
+import - 2
+int - 4
+new - 4
+package - 1
+private - 2
+public - 5
+return - 1
+this - 1
+throw - 2
+throws - 2
+try - 2
+void - 2
+while - 1
