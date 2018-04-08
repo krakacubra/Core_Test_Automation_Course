@@ -1,5 +1,6 @@
 package main.java.mapProp;
 
+import main.java.mapProp.exception.NoKeyException;
 import main.java.mapProp.exception.NoKeyInFile;
 import main.java.mapProp.exception.ReadJustOnceException;
 
@@ -48,7 +49,11 @@ public class MapProperties {
         return mapProp;
     }
 
-    public String getValue(String key) {
-        return mapProp.get(key);
+    public String getValue(String key) throws NoKeyException{
+        String value = mapProp.get(key);
+        if (value == null){
+            throw new NoKeyException();
+        }
+        return value;
     }
 }
