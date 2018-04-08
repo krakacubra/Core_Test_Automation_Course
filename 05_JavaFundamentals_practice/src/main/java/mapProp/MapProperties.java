@@ -1,9 +1,12 @@
 package main.java.mapProp;
 
+import main.java.mapProp.exception.ReadJustOnceException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,11 +14,11 @@ import java.util.regex.Pattern;
 public class MapProperties {
     private Map<String, String> mapProp;
 
-    public void fillMap(String path) throws IOException{
+    public void fillMap(String path) throws IOException, ReadJustOnceException{
         if (mapProp != null){
-            return;
+            throw new ReadJustOnceException();
         }
-        mapProp = new HashMap<>();
+        mapProp = new LinkedHashMap<>();
         try(
                 BufferedReader reader = new BufferedReader(new FileReader(path))
                 ){
