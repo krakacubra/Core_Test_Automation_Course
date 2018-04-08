@@ -1,11 +1,12 @@
 package main.java.mapProp;
 
+import main.java.mapProp.exception.NoKeyInFile;
 import main.java.mapProp.exception.ReadJustOnceException;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -25,16 +26,29 @@ public class MapProperties {
             String s;
             while ((s = reader.readLine()) != null) {
                 if (!s.equals("")) {
-                    Pattern pattern = Pattern.compile("(\\w+) ?[:=] ?(.+)");
+                    Pattern pattern = Pattern.compile("(\\w*) ?[:=] ?(.+)");
                     Matcher match = pattern.matcher(s);
                     match.find();
+                    if (match.group(1).equals("")){
+                        throw new NoKeyInFile();
+                    }
                     mapProp.put(match.group(1), match.group(2));
                 }
             }
+        } catch (FileNotFoundException e){
+            System.out.println("Please write right path to file!");
+//            System.exit(0);
+        } catch (NoKeyInFile e){
+            System.out.println("Check your *.properties file! It has no key, but has value");
+//            System.exit(0);
         }
     }
 
     public Map<String, String> getMapProp() {
         return mapProp;
+    }
+
+    public String getValue(String key) {
+        return mapProp.get(key);
     }
 }
